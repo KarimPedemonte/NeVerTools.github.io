@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="msvalidate.01" content="8A044F6B24E3A19810D766CAE2ACA17A" />
+    <meta name="description" content="NeVer Tools collects knowledge and insight about formal verification of Neural Networks.">
+    <meta name="author" content="Navendu Pottekkat | Stefano Demarchi">
+    <meta name="keywords" content="VNNLIB, NeVer, NeVerTools, CoCoNet, Neural Networks Verification">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="./assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <title>NeVer 2</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="./assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="css/heading.css">
+    <link rel="stylesheet" href="css/body.css">
+
+    <!-- Custom CSS-->
+    <style>
+        pre {
+            font-family: Consolas,"courier new";
+            font-size: 105%;
+            color: #dee2e6;
+            background-color: #2c3e50;
+            padding: 7px 14px;
+            border-radius: 5px;
+        }
+
+        .useful-link{
+            color: inherit;
+            text-decoration: underline;
+            font-family: SB Heading, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .code-instructions {
+            padding-bottom: 4px;
+        }
+        
+        .responsive {
+            width: 110%;
+            max-width: 110%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .font-large {
+            font-size:large;  
+        }
+
+        .float-right {
+            float:right;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blue-font {
+            color: #2c3e50;
+        }
+
+    </style>
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">NeVer 2 - Tutorials</a>
+            <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#example">Network</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#tutorial">Tutorial</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading mb-0">Fully Connected Neural Network with FMNIST</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-caret-down"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">
+                Fashion-MNIST is a dataset of Zalando's article images—consisting of a training set of 60,000 examples
+                and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from
+                10 classes. We intend Fashion-MNIST to serve as a direct drop-in replacement for the original MNIST 
+                dataset for benchmarking machine learning algorithms. It shares the same image size and structure of
+                training and testing splits.
+            </p>
+        </div>
+    </header>
+
+	<!-- PROJECTS SECTION -->
+    <section class="masthead page-section portfolio" id="example">
+        <div class="container">
+            <!-- Portfolio Section Heading -->
+            <div class="text-center">
+                <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Network Overview</h2>
+            </div>
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-code"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+			<!-- Example Section Content -->
+			<div class="text-center">
+                <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id=" example-description">
+                    In the picture below there is a formal representation of the Convolutional Neural Network we're going to train.
+                    We are going to use a convolutional block, followed by a MaxPooling and a Flattening operation; in addition we're going to make 3 Fully Connected operations with ReLU as the neuron activation function.
+                    As said before, the FMNIST Dataset has 1x28x28 input parameters and 10 output parameters.
+                </div>
+                <br>
+                <img src="./assets/img/tutorials/FMNIST/Convolutional_graph.png" alt="Convolutional diagram" class="responsive">
+			</div>
+        </div>
+    </section>
+
+    <section class="page-section bg-primary text-white mb-0" id="tutorial">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <div class="text-center">
+                <h2 class="page-section-heading d-inline-block text-white">Tutorial</h2>
+            </div>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-code"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Content-->
+            <div class="text-left font-large">
+                <div>
+                    <div>
+                        <p>
+                    <div>
+                        <p> Once NeVer2 is open, select the required blocks in the toolbar on the left.
+                            When clicked, the desired nodes will appear on the canvas with default parameters. 
+                            Drag and drop them any position you like on the canvas.
+                            To edit their parameters double-click or right-click and click "edit".
+                            To delete them right-click and click "delete" or press the DEL key.</p>
+                        <img class="center"src="./assets/img/tutorials/common/options.png" alt="Right-Click menu options">
+                    </div>
+                    <br>
+                    
+                    <br>
+                    <div>
+                        <p> To begin, we're going to select a Convolutional block and set its parameters as shown in the picture below.</p>
+                        <div class="center flex-center">
+                            <img style="padding-right: 10%;"src="./assets/img/tutorials/FMNIST/editConv.png" alt="edit Convolutional block">
+                            <img src="./assets/img/tutorials/FMNIST/net1.png" alt="Convolutional block">
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <p> After selecting a MaxPool block and editing its parameters, we can connect them activating the drawing mode with the "Draw Line" button
+                            (in the top-left corner) or by pressing the CTRL+D shortcut and clicking on them (first click on Convolutional
+                            block and then on the MaxPool node).</p>
+                        <div class="center flex-center">
+                            <img style="padding-right: 10%;"src="./assets/img/tutorials/common/drawLine.png" alt="Toolbar with highlighted Draw Line button">
+                            <img src="./assets/img/tutorials/FMNIST/net2.png" alt="Convolutional and MaxPool NeVer2">
+                        </div>
+                            
+                    </div>
+                    <br>
+                    <div>
+                        <p> Next, we're going to use a Flatten block, which is going to be linked to a ReLU node. </p>
+                        <div class="center flex-center">
+                            <img src="./assets/img/tutorials/FMNIST/net3.png" alt="MaxPool and Flatten node">
+                        </div>
+                            
+                    </div>
+                    <br>
+                    <div>
+                        <p>Moreover, we're going to use Fully Connected and ReLu nodes in order to get the right output dimension of 10.</p>
+                        <div class="center flex-center">
+                            <img src="./assets/img/tutorials/FMNIST/finalConvolutionalNetwork.png" alt="Flatten and ReLU NeVer2">
+                        </div>
+                            
+                    </div>
+                    <br>
+                    <div>
+                        <p> Now that we have successfully built the network, we need to train it.
+                            We're going to click on the "learn" button in the menu bar, then click on the "train" button and 
+                            select the Fashion MNIST dataset.<br>
+                            Then, we're going to set the training parameters according to the following image.</p>
+                        <img class="center" src="./assets/img/tutorials/FMNIST/trainNetwork.png" alt="Training parameters of the network">
+                    </div>
+                    <br>
+                    <div>
+                        <p>Finally we're going to click on the "Train Network" button and wait for the results.</p>
+                        <img class="center" src="./assets/img/tutorials/FMNIST/results.png" alt="Training Results">
+                    </div>
+                    <br>
+                    <div>
+                        <p>The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training, with a 10 epoch long training, we got 0.016, corresponding to 
+                        a 1.6% error rate.</p>
+                        <img class="center" src="./assets/img/tutorials/FMNIST/stats.png" alt="error rate related to epochs number">
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="mb-4"></h4>
+                    <p class="pre-wrap lead mb-0"> </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="mb-4">Around the Web</h4>
+                    <!-- LINKEDIN -->
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://google.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- MEDIUM (?) -->
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://google.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- GITHUB -->
+                    <li class="list-inline-item">
+                        <a target="blank" href="https://github.com/NeVerTools">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- TWITTER -->
+                    <li class="list-inline-item">
+                        <a target="blank" href="https://google.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="mb-4"></h4>
+                    <p class="pre-wrap lead mb-0"> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright Section -->
+    <section class="copyright py-4 text-center text-white">
+        <div class="container"><small class="pre-wrap"><a target="_blank" href="https://github.com/NeVerTools/NeVerTools.github.io/blob/master/LICENSE">MIT Licensed</a> | neuralverification.org 2021 | Hosted with ❤ by <a href="https://github.com/" target="_blank">GitHub</a></small></div>
+        <!-- GitHub buttons -->
+        <a target="_blank" href="https://startbootstrap.com/theme/freelancer" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-repo-template" aria-label="Use this template">Use this template</a>
+    </section>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed"><a
+            class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
+                class="fa fa-chevron-up"></i></a></div>
+
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS -->
+    <script src="js/scripts.js"></script>
+    <!-- GitHub buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>
