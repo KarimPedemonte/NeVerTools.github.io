@@ -110,7 +110,7 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading mb-0">Fully Connected Neural Network with FMNIST</h1>
+            <h1 class="masthead-heading mb-0">Neural Network for the Fashion MNIST dataset</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -121,7 +121,7 @@
             <p class="masthead-subheading font-weight-light mb-0">
                 Fashion-MNIST is a dataset of Zalando's article images—consisting of a training set of 60,000 examples
                 and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from
-                10 classes. We intend Fashion-MNIST to serve as a direct drop-in replacement for the original MNIST 
+                10 classes.Fashion-MNIST is intended to serve as a direct drop-in replacement for the original MNIST 
                 dataset for benchmarking machine learning algorithms. It shares the same image size and structure of
                 training and testing splits.
             </p>
@@ -145,7 +145,8 @@
 			<div class="text-center">
                 <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id=" example-description">
                     In the picture below there is a formal representation of the Convolutional Neural Network we're going to train.
-                    We are going to use a convolutional block, followed by a MaxPooling and a Flattening operation; in addition we're going to make 3 Fully Connected operations with ReLU as the neuron activation function.
+                    We are going to use a convolutional block, followed by a MaxPooling and a Flattening operation; in addition we're
+                    going to make 3 Fully Connected operations with ReLU as the neuron activation function.
                     As said before, the FMNIST Dataset has 1x28x28 input parameters and 10 output parameters.
                 </div>
                 <br>
@@ -192,7 +193,7 @@
                     <br>
                     <div>
                         <p> After selecting a MaxPool block and editing its parameters, we can connect them activating the drawing mode with the "Draw Line" button
-                            (in the top-left corner) or by pressing the CTRL+D shortcut and clicking on them (first click on Convolutional
+                            (in the top-left corner) or by pressing the CTRL+D shortcut and clicking on them (first click on the Convolutional
                             block and then on the MaxPool node).</p>
                         <div class="center flex-center">
                             <img style="padding-right: 10%;"src="./assets/img/tutorials/common/drawLine.png" alt="Toolbar with highlighted Draw Line button">
@@ -210,7 +211,10 @@
                     </div>
                     <br>
                     <div>
-                        <p>Moreover, we're going to use Fully Connected and ReLu nodes in order to get the right output dimension of 10.</p>
+                        <p>
+                            Finally, we're going to use three Fully Connected and two ReLu nodes up to the output layer. The Fully Connected
+                            layers have their "out_features" parameter set to 1000, 100 and 10 respectively.
+                        </p>
                         <div class="center flex-center">
                             <img src="./assets/img/tutorials/FMNIST/finalConvolutionalNetwork.png" alt="Flatten and ReLU NeVer2">
                         </div>
@@ -231,8 +235,10 @@
                     </div>
                     <br>
                     <div>
-                        <p>The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training, with a 10 epoch long training, we got 0.016, corresponding to 
-                        a 1.6% error rate.</p>
+                        <p> The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training, with a 10 epoch long training, we got 0.016, corresponding to 
+                            a 1.6% error rate.<br>
+                            As shown in the graph below, if you train the network for more epochs you will notice an improvement in the error percentage.</p>
+                        <br>
                         <img class="center" src="./assets/img/tutorials/FMNIST/stats.png" alt="error rate related to epochs number">
                     </div>
               

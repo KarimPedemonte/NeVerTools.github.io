@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msvalidate.01" content="8A044F6B24E3A19810D766CAE2ACA17A" />
     <meta name="description" content="NeVer Tools collects knowledge and insight about formal verification of Neural Networks.">
     <meta name="author" content="Navendu Pottekkat | Stefano Demarchi">
@@ -56,13 +56,11 @@
         }
         
         .responsive {
-            width: 110%;
-            max-width: 110%;
+            max-width: 100%;
+            width: 100%;
             height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
+        
 
         .font-large {
             font-size:large;  
@@ -105,7 +103,7 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading mb-0">Fully Connected Neural Network with ACC dataset</h1>
+            <h1 class="masthead-heading mb-0">Neural Network for the ACC dataset</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -140,7 +138,7 @@
                 As said before, the ACC Dataset has three input parameters and one output parameter.
                 </div>
                 <br>
-                <img src="./assets/img/tutorials/ACC/ACC_graph.png" alt="Fully connected diagram" class="responsive">
+                <img src="./assets/img/tutorials/ACC/ACC_graph.png" alt="Fully connected diagram" class="center responsive">
 			</div>
         </div>
     </section>
@@ -226,8 +224,11 @@
                     </div>
                     <br>
                     <div>
-                        The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training we got about 9.8e-05, corresponding to 
-                        a 0.0098% error rate!
+                        <p> The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training we got about 9.8e-05, corresponding to 
+                            a 0.0098% error rate!<br>
+                            As shown in the graph below, if you train the network for more epochs you will notice an improvement in the error percentage.</p>
+                        <br>
+                        <img class="center" src="./assets/img/tutorials/ACC/stats.png" alt="error rate related to epochs number">
                     </div>
               
                 </div>
