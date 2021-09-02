@@ -56,9 +56,12 @@
         }
         
         .responsive {
-            max-width: 100%;
-            width: 100%;
+            width: 110%;
+            max-width: 110%;
             height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         
 
@@ -73,10 +76,20 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            padding-bottom: 5%;
         }
+        .titles-tutorial {
+            text-align: center !important;
+            padding: 5%;
+        }
+
         .flex-center {
             display: flex;
             justify-content: center;
+            align-items: center;
+        }
+        .blue-font {
+            color: #2c3e50;
         }
 
     </style>
@@ -118,7 +131,7 @@
     </header>
 
 	<!-- PROJECTS SECTION -->
-    <section class="page-section portfolio" id="example">
+    <section class="masthead page-section portfolio" id="example">
         <div class="container">
             <!-- Portfolio Section Heading -->
             <div class="text-center">
@@ -132,7 +145,7 @@
             </div>
 			<!-- Example Section Content -->
 			<div class="text-left"></div>
-                <div id="example-description" class="text-center">
+                <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id="example-description">
                 In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
                 We are going to use 3 Hidden Layers with ReLU as the neuron activation function.
                 As said before, the ACC Dataset has three input parameters and one output parameter.
@@ -208,7 +221,7 @@
                     <br>
                     <div>
                         <p> Now that we have successfully built the network, we need to train it.
-                            We're going to click on the "learn" button in the menu bar, then click on the "train" button and select the ACC custom dataset (txt format).
+                            We're going to click on the "learn" button in the menu bar, then click on the "train" button and select the ACC custom dataset (TXT or CSV format).
                             The target index field contains the input size.</p>
                         <img class="center" src="./assets/img/tutorials/ACC/customDataSet.png" alt="Screen of the select custom dataset menu">
                     </div>

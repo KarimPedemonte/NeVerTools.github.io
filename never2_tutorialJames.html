@@ -75,11 +75,20 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            padding-bottom: 5%;
         }
+        .titles-tutorial {
+            text-align: center !important;
+            padding: 5%;
+        }
+
         .flex-center {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .blue-font {
+            background-color: #2c3e50;
         }
 
     </style>
@@ -121,7 +130,7 @@
     </header>
 
 	<!-- PROJECTS SECTION -->
-    <section class="page-section portfolio" id="example">
+    <section class="masthead page-section portfolio" id="example">
         <div class="container">
             <!-- Portfolio Section Heading -->
             <div class="text-center">
@@ -135,7 +144,7 @@
             </div>
 			<!-- Example Section Content -->
 			<div class="text-left"></div>
-                <div id="example-description" class="text-center">In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
+                <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id="example-description">In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
                 We are going to use 3 Hidden Layers with ReLU as the neuron activation function.
                 As said before, the James Dataset has eight input parameters and six output parameters.
             </div>
@@ -159,7 +168,9 @@
             </div>
             <!-- Contact Section Content-->
             <div class="text-left font-large">
-                <div>
+                <div id="build-network">
+                    <h2 class="titles-tutorial">Building the network</h2>
+                    <br>
                     <div>
                         <p>Once NeVer2 is open, select the required blocks in the toolbar on the left. In this case we're going to use
                         only Fully Connected and ReLU blocks.</p>
@@ -211,16 +222,41 @@
                         <img class="center" src="./assets/img/tutorials/James/finalFC.png" alt="Final Fully Connected Neural Network NeVer2">
                     </div>
                     <br>
+                </div>
+
+                <div id="Train-network">
                     <div>
+                        <h2 class="titles-tutorial">Training the network</h2>
                         <p> Now that we have successfully built the network, we need to train it.
-                            We're going to click on the "learn" button in the menu bar, then click on the "train" button and select the James custom dataset (txt format).
+                            We're going to click on the "learn" button in the menu bar, then click on the "train" button and select the James custom dataset (TXT or CSV format).
                             The target index field contains the input size.</p>
                         <img class="center" src="./assets/img/tutorials/James/customDataSet.png" alt="Screen of the select custom dataset menu">
                     </div>
                     <br>
                     <div>
-                        <p>Then, we're going to set the training parameters according to the following image.</p>
-                        <img class="center" src="./assets/img/tutorials/James/trainNetwork.png" alt="Training parameters of the network">
+                        
+                        <p> Then, we're going to set the training parameters according to the following image.<br><br>
+                            <img class="center" src="./assets/img/tutorials/James/trainNetwork.png" alt="Training parameters of the network"><br>
+                            The <b>Dataset transform</b> is not required for datasets not related to MNIST.<br><br>
+                            Concerning the <b>optimizer</b>, the only one available at the moment is "Adam" ("adaptive moment estimation"),
+                            the most popular and effective gradient based optimization algorithm, so that's what we're using.
+                            You may also change Adam's default parameters, if you wish.<br><br>
+                            The <b>learning rate scheduler</b> available is "ReduceLROnPlateau", which will adjust the learning rate when a plateau 
+                            in model performance is detected, e.g. no change for a given number of training epochs.<br><br>
+                            As <b>Loss Function</b> you can choose between "Cross Entropy" and "MSE Loss"; the choice depends on the neural network structure.
+                            In our case we are going to use the second one.<br><br>
+                            As <b>metric function</b> there are two options "inaccuracy", that ..., and "MSE loss", which you can change the reduction type.<br><br>
+                            Then, we have the <b>epochs</b> number, that defines the number times that the learning algorithm will work through the entire training dataset.<br><br>
+                            The next parameter <b>validation percentage</b> (a number between 0 and 1) refers to the percentage of the dataset to use as the validation set.<br><br>
+                            To split your dataset computation you can set the next two constants, <b>training batch size</b> and <b>validation batch size</b>, that is recommended
+                            with large datasets. We're going to set 32 and 16 respectively.<br><br>
+                            Finally, if you want to use a Nvidia GPU during the training you can set <b>epochs</b> to True.<br><br>
+                            The last three parameters are optional and correspond to:<br>
+                            -<b>Train patience</b>: The number of epochs in which the loss may not decrease before the training procedure is interrupted with early stopping.<br>
+                            -<b>Checkpoints root</b>: where to store the checkpoints of the training strategy.<br>
+                            -<b>Verbosity level</b>: After how many batch the strategy prints information about how the training is going.
+                            </p>
+                        
                     </div>
                     <br>
                     <div>
@@ -235,7 +271,12 @@
                         <br>
                         <img class="center" src="./assets/img/tutorials/James/stats.png" alt="error rate related to epochs number">
                     </div>
-              
+                </div>
+
+                <div class="verify-network">
+                    
+                    <h2 class="titles-tutorial">Verifying the network</h2>  
+                    <h1 class="titles-tutorial">TODO</h1> 
                 </div>
             </div>
         </div>
