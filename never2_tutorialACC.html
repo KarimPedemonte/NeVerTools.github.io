@@ -91,6 +91,7 @@
         .blue-font {
             color: #2c3e50;
         }
+        b { font-size:115%; color: whitesmoke;}
 
     </style>
 </head>
@@ -148,7 +149,7 @@
                 <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id="example-description">
                 In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
                 We are going to use 3 Hidden Layers with ReLU as the neuron activation function.
-                As said before, the ACC Dataset has three input parameters and one output parameter.
+                As said before, the ACC Dataset has three input and one output parameter.
                 </div>
                 <br>
                 <img src="./assets/img/tutorials/ACC/ACC_graph.png" alt="Fully connected diagram" class="center responsive">
@@ -170,7 +171,9 @@
             </div>
             <!-- Contact Section Content-->
             <div class="text-left font-large">
-                <div>
+                <div id="build-network">
+                    <h2 class="titles-tutorial">Building the network</h2>
+                    <br>
                     <div>
                         <p>Once NeVer2 is open, select the required blocks in the toolbar on the left. In this case we're going to use
                         only Fully Connected and ReLU blocks.</p>
@@ -195,7 +198,7 @@
                             (in the top-left corner) or by pressing the CTRL+D shortcut and clicking on them (first click on Fully Connected
                             block and then on the ReLU node).</p>
                         <div class="center flex-center">
-                            <img style="padding-right: 10%;"src="./assets/img/tutorials/common/drawLine.png" alt="Toolbar with highlighted Draw Line button">
+                            <img style="padding-right: 10%;" src="./assets/img/tutorials/common/drawLine.png" alt="Toolbar with highlighted Draw Line button">
                             <img src="./assets/img/tutorials/ACC/fcAndReLU.png" alt="Fully Connected and ReLU NeVer2">
                         </div>
                             
@@ -205,21 +208,30 @@
                         <p> We're now going to add a new Fully Connected block and set its "out_features" parameter to 32, then link the previous ReLU node to it.
                             By connecting the ReLU node the new Fully Connected block "in_features" parameter is automatically set to the ReLU output value (64).
                             Next, we're adding another ReLU node and we're connecting the previous Fully Connected node to it.</p>
-                        <img class="center" src="./assets/img/tutorials/ACC/fcAndReLUx2.png" alt="Fully Connected and ReLU NeVer2">
+                        <div class="center flex-center">
+                            <img src="./assets/img/tutorials/ACC/fcAndReLUx2.png" alt="Fully Connected and ReLU NeVer2">
+                        </div>
                     </div>
                     <br>
                     <div>
                         <p> We're now going to repeat the last two steps one more time, creating a Fully Connected node with "out_features" set to 16,
                             and adding a subsequent ReLU block.</p>
-                        <img class="center" src="./assets/img/tutorials/ACC/fcAndReLUx3.png" alt="Fully Connected and ReLU NeVer2">
+                            <div class="center flex-center">
+                                <img src="./assets/img/tutorials/ACC/fcAndReLUx3.png" alt="Fully Connected and ReLU NeVer2">
+                            </div>
                     </div>
                     <br>
                     <div>
                         <p>Lastly we're going to add a final Fully Connected block and set its "out_features" parameter to 1.</p>
-                        <img class="center" src="./assets/img/tutorials/ACC/finalFC.png" alt="Final Fully Connected Neural Network NeVer2">
+                        <div class="center flex-center">
+                            <img src="./assets/img/tutorials/ACC/finalFC.png" alt="Final Fully Connected Neural Network NeVer2">
+                        </div>
                     </div>
                     <br>
+                </div>
+                <div id="Train-network">
                     <div>
+                        <h2 class="titles-tutorial">Training the network</h2>
                         <p> Now that we have successfully built the network, we need to train it.
                             We're going to click on the "learn" button in the menu bar, then click on the "train" button and select the ACC custom dataset (TXT or CSV format).
                             The target index field contains the input size.</p>
@@ -229,21 +241,45 @@
                     <div>
                         <p>Then, we're going to set the training parameters according to the following image.</p>
                         <img class="center" src="./assets/img/tutorials/ACC/trainNetwork.png" alt="Training parameters of the network">
+                        <p>The <b>Dataset transform</b> is not required for datasets not related to MNIST.<br><br>
+                            Concerning the <b>optimizer</b>, the only one available at the moment is "Adam" ("adaptive moment estimation"),
+                            the most popular and effective gradient based optimization algorithm, so that's what we're using.
+                            You may also change Adam's default parameters, if you wish.<br><br>
+                            The <b>learning rate scheduler</b> available is "ReduceLROnPlateau", which will adjust the learning rate when a plateau 
+                            in model performance is detected, e.g. no change for a given number of training epochs.<br><br>
+                            As <b>Loss Function</b> you can choose between "Cross Entropy" and "MSE Loss"; the choice depends on the neural network structure.
+                            In our case we are going to use the second one.<br><br>
+                            As <b>metric function</b> there are two options "inaccuracy", that ..., and "MSE loss", of which you can change the reduction type.<br><br>
+                            Then, we have the <b>epochs</b> number, that defines the number times that the learning algorithm will work through the entire training dataset.<br><br>
+                            The next parameter <b>validation percentage</b> (a number between 0 and 1) refers to the percentage of the dataset to use as the validation set.<br><br>
+                            To split your dataset computation you can set the next two constants, <b>training batch size</b> and <b>validation batch size</b>, that is recommended
+                            with large datasets. We're going to set 256 and 128 respectively.<br><br>
+                            Finally, if you want to use a Nvidia GPU during the training you can set <b>cuda</b> to True.<br><br>
+                            The last three parameters are optional and correspond to:<br>
+                            -<b>Train patience</b>: The number of epochs in which the loss may not decrease before the training procedure is interrupted with early stopping.<br>
+                            -<b>Checkpoints root</b>: where to store the checkpoints of the training strategy.<br>
+                            -<b>Verbosity level</b>: After how many batch the strategy prints information about how the training is going.
+                        </p>
                     </div>
                     <br>
                     <div>
                         <p>Finally we're going to click on the "Train Network" button and wait for the results.</p>
                         <img class="center" src="./assets/img/tutorials/ACC/results.png" alt="Training Results">
+                        
                     </div>
                     <br>
                     <div>
-                        <p> The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training we got about 9.8e-05, corresponding to 
+                        <p> The <b>Best Loss Score</b> label indicates the network's error percentage. In this case, with a 10 epoch long training we got about 9.8e-05, corresponding to 
                             a 0.0098% error rate!<br>
                             As shown in the graph below, if you train the network for more epochs you will notice an improvement in the error percentage.</p>
                         <br>
                         <img class="center" src="./assets/img/tutorials/ACC/stats.png" alt="error rate related to epochs number">
                     </div>
-              
+                </div>
+                <div class="verify-network">
+                    
+                    <h2 class="titles-tutorial">Verifying the network</h2>  
+                    <h1 class="titles-tutorial">TODO</h1> 
                 </div>
             </div>
         </div>

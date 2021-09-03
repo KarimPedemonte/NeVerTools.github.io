@@ -88,7 +88,7 @@
             align-items: center;
         }
         .blue-font {
-            background-color: #2c3e50;
+            color: #2c3e50;
         }
 
     </style>
@@ -124,7 +124,13 @@
             </div>
             <!-- Masthead Subheading-->
             <p class="masthead-subheading font-weight-light mb-0">
-            Dataset for hand gestures recognition
+                James is the name of a humanoid robot. It is intended to operate in the context of object manipulation.
+                Hand is designed using 3 motors used for thumb, 2 motors used for index finger and 2 motors for middle, ring and little fingers.
+                Finally, an additional motor (for a total of eight motors) is used to actuate 
+                the abduction/adduction of four fingers (index, middle, ring and little fingers).
+                The experiment related to the dataset we're using consists in the recognition of 6 different objects 
+                (bottle, ball, mobile phone, scarf, foam blob and furry toy) held in James's hand.
+                So, this dataset has 8 inputs, corresponding to the motors' sensors, and 6 outputs, related to the above-mentioned objects.      
             </p>
         </div>
     </header>
@@ -143,14 +149,15 @@
                 <div class="divider-custom-line"></div>
             </div>
 			<!-- Example Section Content -->
-			<div class="text-left"></div>
-                <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id="example-description">In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
-                We are going to use 3 Hidden Layers with ReLU as the neuron activation function.
-                As said before, the James Dataset has eight input parameters and six output parameters.
+			<div class="text-center">
+                <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id="example-description">
+                In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
+                We are going to use 3 Hidden Layers with ReLU as the neuron activation function.<br>
+                As said before, the James Dataset has eight input and six output parameters.
+                </div>
             </div>
             <br>
-                <img src="./assets/img/tutorials/James/james_graph.png" alt="Fully connected diagram" class="responsive">
-			</div>
+            <img src="./assets/img/tutorials/James/james_graph.png" alt="Fully connected diagram" class="responsive">
         </div>
     </section>
 
@@ -180,7 +187,7 @@
                     <div>
                         <p>When clicked, the desired nodes will appear on the canvas with default parameters. Drag and drop them any position you like on the canvas.
                         To edit their parameters double-click or right-click and click "edit". To delete them right-click and click "delete" or press the DEL key.</p>
-                        <img class="center"src="./assets/img/tutorials/common/options.png" alt="Right-Click menu options">
+                        <img class="center" src="./assets/img/tutorials/common/options.png" alt="Right-Click menu options">
                     </div>
                     <br>
                     
@@ -188,7 +195,7 @@
                     <div>
                         <p>To begin, we're going to select a Fully Connected block and set the "in_features" and "out_features" parameters to values 8 and 64 respectively.</p>
                         <div class="center flex-center">
-                            <img style="padding-right: 10%;"src="./assets/img/tutorials/James/editFC.png" alt="edit Fully connected block">
+                            <img style="padding-right: 10%;" src="./assets/img/tutorials/James/editFC.png" alt="edit Fully connected block">
                             <img src="./assets/img/tutorials/James/fc.png" alt="Fully Connected block">
                         </div>
                     </div>
@@ -198,7 +205,7 @@
                             (in the top-left corner) or by pressing the CTRL+D shortcut and clicking on them (first click on Fully Connected
                             block and then on the ReLU node).</p>
                         <div class="center flex-center">
-                            <img style="padding-right: 10%;"src="./assets/img/tutorials/common/drawLine.png" alt="Toolbar with highlighted Draw Line button">
+                            <img style="padding-right: 10%;" src="./assets/img/tutorials/common/drawLine.png" alt="Toolbar with highlighted Draw Line button">
                             <img src="./assets/img/tutorials/James/fcAndReLU.png" alt="Fully Connected and ReLU NeVer2">
                         </div>
                             
@@ -214,12 +221,16 @@
                     <div>
                         <p> We're now going to repeat the last two steps one more time, creating a Fully Connected node with "out_features" set to 16,
                             and adding a subsequent ReLU block.</p>
-                        <img class="center" src="./assets/img/tutorials/James/fcAndReLUx3.png" alt="Fully Connected and ReLU NeVer2">
+                        <div class="center flex-center">
+                            <img class="center" src="./assets/img/tutorials/James/fcAndReLUx3.png" alt="Fully Connected and ReLU NeVer2">
+                        </div>
                     </div>
                     <br>
                     <div>
                         <p>Lastly we're going to add a final Fully Connected block and set its "out_features" parameter to 6.</p>
-                        <img class="center" src="./assets/img/tutorials/James/finalFC.png" alt="Final Fully Connected Neural Network NeVer2">
+                        <div class="center flex-center">
+                            <img src="./assets/img/tutorials/James/finalFC.png" alt="Final Fully Connected Neural Network NeVer2">
+                        </div>
                     </div>
                     <br>
                 </div>
@@ -235,9 +246,9 @@
                     <br>
                     <div>
                         
-                        <p> Then, we're going to set the training parameters according to the following image.<br><br>
-                            <img class="center" src="./assets/img/tutorials/James/trainNetwork.png" alt="Training parameters of the network"><br>
-                            The <b>Dataset transform</b> is not required for datasets not related to MNIST.<br><br>
+                        <p> Then, we're going to set the training parameters according to the following image.</p>
+                            <img class="center" src="./assets/img/tutorials/James/trainNetwork.png" alt="Training parameters of the network">
+                            <p>The <b>Dataset transform</b> is not required for datasets not related to MNIST.<br><br>
                             Concerning the <b>optimizer</b>, the only one available at the moment is "Adam" ("adaptive moment estimation"),
                             the most popular and effective gradient based optimization algorithm, so that's what we're using.
                             You may also change Adam's default parameters, if you wish.<br><br>
@@ -245,17 +256,17 @@
                             in model performance is detected, e.g. no change for a given number of training epochs.<br><br>
                             As <b>Loss Function</b> you can choose between "Cross Entropy" and "MSE Loss"; the choice depends on the neural network structure.
                             In our case we are going to use the second one.<br><br>
-                            As <b>metric function</b> there are two options "inaccuracy", that ..., and "MSE loss", which you can change the reduction type.<br><br>
+                            As <b>metric function</b> there are two options "inaccuracy", that ..., and "MSE loss", of which you can change the reduction type.<br><br>
                             Then, we have the <b>epochs</b> number, that defines the number times that the learning algorithm will work through the entire training dataset.<br><br>
                             The next parameter <b>validation percentage</b> (a number between 0 and 1) refers to the percentage of the dataset to use as the validation set.<br><br>
                             To split your dataset computation you can set the next two constants, <b>training batch size</b> and <b>validation batch size</b>, that is recommended
                             with large datasets. We're going to set 32 and 16 respectively.<br><br>
-                            Finally, if you want to use a Nvidia GPU during the training you can set <b>epochs</b> to True.<br><br>
+                            Finally, if you want to use a Nvidia GPU during the training you can set <b>cuda</b> to True.<br><br>
                             The last three parameters are optional and correspond to:<br>
                             -<b>Train patience</b>: The number of epochs in which the loss may not decrease before the training procedure is interrupted with early stopping.<br>
                             -<b>Checkpoints root</b>: where to store the checkpoints of the training strategy.<br>
                             -<b>Verbosity level</b>: After how many batch the strategy prints information about how the training is going.
-                            </p>
+                        </p>
                         
                     </div>
                     <br>
@@ -265,7 +276,7 @@
                     </div>
                     <br>
                     <div>
-                        <p> The "Best Loss Score" label indicates the network's error percentage. In this case, with a 10 epoch long training we got 0.0008, corresponding to 
+                        <p> The <b>Best Loss Score</b> label indicates the network's error percentage. In this case, with a 10 epoch long training we got 0.0008, corresponding to 
                             a 0.08% error rate!<br>
                             As shown in the graph below, if you train the network for more epochs you will notice an improvement in the error percentage.</p>
                         <br>
