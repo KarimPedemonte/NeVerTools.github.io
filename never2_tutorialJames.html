@@ -90,7 +90,19 @@
         .blue-font {
             color: #2c3e50;
         }
+        #train, #overview {
+            color: #2c3e50;
+        }
+        #train b {
+            color: #2c3e50;
+            font-size:115%;
+        }
 
+        #overview p, #build p, #train p, #verify p {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+        
     </style>
 </head>
 
@@ -103,10 +115,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
 					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#example">Network</a>
+                            href="#overview">Overview</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#tutorial">Tutorial</a>
+                            href="#build">Building</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                        href="#train">Training</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                        href="#verify">Verification</a>
                     </li>
                 </ul>
             </div>
@@ -135,8 +153,8 @@
         </div>
     </header>
 
-	<!-- PROJECTS SECTION -->
-    <section class="masthead page-section portfolio" id="example">
+	<!-- OVERVIEW SECTION -->
+    <section class="masthead page-section portfolio" id="overview">
         <div class="container">
             <!-- Portfolio Section Heading -->
             <div class="text-center">
@@ -150,10 +168,10 @@
             </div>
 			<!-- Example Section Content -->
 			<div class="text-center">
-                <div class="masthead-subheading font-weight-light mb-0 text-center blue-font" id="example-description">
-                In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
-                We are going to use 3 Hidden Layers with ReLU as the neuron activation function.<br>
-                As said before, the James Dataset has eight input and six output parameters.
+                <div id="overview-description">
+                    <p>In the picture below there is a formal representation of the Fully Connected Neural Network we're going to train.
+                    We are going to use 3 Hidden Layers with ReLU as the neuron activation function.<br>
+                    As said before, the James Dataset has eight input and six output parameters.</p>
                 </div>
             </div>
             <br>
@@ -161,22 +179,22 @@
         </div>
     </section>
 
-    <section class="page-section bg-primary text-white mb-0" id="tutorial">
+    <!-- BUILD SECTION -->
+    <section class="page-section bg-primary text-white mb-0" id="build">
         <div class="container">
             <!-- Contact Section Heading-->
             <div class="text-center">
-                <h2 class="page-section-heading d-inline-block text-white">Tutorial</h2>
+                <h2 class="page-section-heading d-inline-block text-white">Building the Network</h2>
             </div>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-code"></i></div>
+                <div class="divider-custom-icon"><i class="fas fa-hammer"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
             <!-- Contact Section Content-->
             <div class="text-left font-large">
                 <div id="build-network">
-                    <h2 class="titles-tutorial">Building the network</h2>
                     <br>
                     <div>
                         <p>Once NeVer2 is open, select the required blocks in the toolbar on the left. In this case we're going to use
@@ -234,10 +252,28 @@
                     </div>
                     <br>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- TRAIN SECTION -->
+    <section class="page-section" id="train">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <div class="text-center">
+                <h2 class="page-section-heading text-secondary d-inline-block mb-0">Training the Network</h2>
+            </div>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Content-->
+            <div class="text-left font-large">
                 <div id="Train-network">
+                    <br>
                     <div>
-                        <h2 class="titles-tutorial">Training the network</h2>
                         <p> Now that we have successfully built the network, we need to train it.
                             We're going to click on the "learn" button in the menu bar, then click on the "train" button and select the James custom dataset (TXT or CSV format).
                             The target index field contains the input size.</p>
@@ -249,19 +285,19 @@
                         <p> Then, we're going to set the training parameters according to the following image.</p>
                             <img class="center" src="./assets/img/tutorials/James/trainNetwork.png" alt="Training parameters of the network">
                             <p>The <b>Dataset transform</b> is not required for datasets not related to MNIST.<br><br>
-                            Concerning the <b>optimizer</b>, the only one available at the moment is "Adam" ("adaptive moment estimation"),
+                            Concerning the <b>Optimizer</b>, the only one available at the moment is "Adam" ("adaptive moment estimation"),
                             the most popular and effective gradient based optimization algorithm, so that's what we're using.
                             You may also change Adam's default parameters, if you wish.<br><br>
-                            The <b>learning rate scheduler</b> available is "ReduceLROnPlateau", which will adjust the learning rate when a plateau 
+                            The <b>Learning rate scheduler</b> available is "ReduceLROnPlateau", which will adjust the learning rate when a plateau 
                             in model performance is detected, e.g. no change for a given number of training epochs.<br><br>
-                            As <b>Loss Function</b> you can choose between "Cross Entropy" and "MSE Loss"; the choice depends on the neural network structure.
+                            As <b>Loss function</b> you can choose between "Cross Entropy" and "MSE Loss"; the choice depends on the neural network structure.
                             In our case we are going to use the second one.<br><br>
-                            As <b>metric function</b> there are two options "inaccuracy", that ..., and "MSE loss", of which you can change the reduction type.<br><br>
-                            Then, we have the <b>epochs</b> number, that defines the number times that the learning algorithm will work through the entire training dataset.<br><br>
-                            The next parameter <b>validation percentage</b> (a number between 0 and 1) refers to the percentage of the dataset to use as the validation set.<br><br>
-                            To split your dataset computation you can set the next two constants, <b>training batch size</b> and <b>validation batch size</b>, that is recommended
+                            As <b>Metric Function</b> there are two options "inaccuracy", that ..., and "MSE loss", of which you can change the reduction type.<br><br>
+                            Then, we have the <b>Epochs</b> number, that defines the number times that the learning algorithm will work through the entire training dataset.<br><br>
+                            The next parameter <b>Validation percentage</b> (a number between 0 and 1) refers to the percentage of the dataset to use as the validation set.<br><br>
+                            To split your dataset computation you can set the next two constants, <b>Training batch size</b> and <b>Validation batch size</b>, that is recommended
                             with large datasets. We're going to set 32 and 16 respectively.<br><br>
-                            Finally, if you want to use a Nvidia GPU during the training you can set <b>cuda</b> to True.<br><br>
+                            Finally, if you want to use a Nvidia GPU during the training you can set <b>Cuda</b> to True.<br><br>
                             The last three parameters are optional and correspond to:<br>
                             -<b>Train patience</b>: The number of epochs in which the loss may not decrease before the training procedure is interrupted with early stopping.<br>
                             -<b>Checkpoints root</b>: where to store the checkpoints of the training strategy.<br>
@@ -283,16 +319,32 @@
                         <img class="center" src="./assets/img/tutorials/James/stats.png" alt="error rate related to epochs number">
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="verify-network">
-                    
-                    <h2 class="titles-tutorial">Verifying the network</h2>  
+    <!-- VERIFY SECTION -->
+    <section class="page-section bg-primary text-white mb-0" id="verify">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <div class="text-center">
+                <h2 class="page-section-heading d-inline-block text-white">Verifying the Network</h2>
+            </div>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-check"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Content-->
+            <div class="text-left font-large">
+                <div id="verify-network">
+                    <br>
                     <h1 class="titles-tutorial">TODO</h1> 
                 </div>
             </div>
         </div>
     </section>
-
 
     <footer class="footer text-center">
         <div class="container">
